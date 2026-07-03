@@ -1,0 +1,10 @@
+{
+  "name": "Sabby's Slave",
+  "short_name": "Sabby's Slave",
+  "description": "Log workouts, activities, health, and diary entries.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#101114",
+  "theme_color": "#101114",
+  "orientation": "portrait"
+}
