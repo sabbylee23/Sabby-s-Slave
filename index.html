@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101114" />
+    <meta
+      name="description"
+      content="A personal dashboard for logging workouts, activities, health, and diary entries."
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Life Dashboard" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Life Dashboard</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="todayLabel">Today</p>
+          <h1 id="screenTitle">Life Dashboard</h1>
+        </div>
+        <button class="icon-button" id="backButton" type="button" aria-label="Back" hidden>
+          <span aria-hidden="true">‹</span>
+        </button>
+      </header>
+
+      <main id="app" class="screen"></main>
+
+      <nav class="bottom-nav" aria-label="Main">
+        <button data-nav="dashboard" class="active" type="button">
+          <span aria-hidden="true">⌂</span>
+          Home
+        </button>
+        <button data-nav="workout" type="button">
+          <span aria-hidden="true">◆</span>
+          Workout
+        </button>
+        <button data-nav="health" type="button">
+          <span aria-hidden="true">♡</span>
+          Health
+        </button>
+        <button data-nav="diary" type="button">
+          <span aria-hidden="true">✎</span>
+          Diary
+        </button>
+      </nav>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <dialog id="exerciseDialog" class="dialog">
+      <form method="dialog" class="dialog-panel">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Gym</p>
+            <h2>Add Exercise</h2>
+          </div>
+          <button class="icon-button" value="cancel" type="submit" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <label class="field search-field">
+          <span>Search exercise</span>
+          <input id="exerciseSearch" autocomplete="off" placeholder="Bench, pulldown, cable..." />
+        </label>
+
+        <div id="exerciseResults" class="result-list"></div>
+
+        <div class="create-panel" id="createExercisePanel" hidden>
+          <label class="field">
+            <span>Exercise name</span>
+            <input id="newExerciseName" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span>Category</span>
+            <select id="newExerciseCategory">
+              <option>Chest</option>
+              <option>Back</option>
+              <option>Shoulders</option>
+              <option>Legs</option>
+              <option>Arms</option>
+              <option>Core</option>
+              <option>Full Body</option>
+            </select>
+          </label>
+          <button id="createExerciseButton" class="primary-button" type="button">Create and Add</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="./api.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
